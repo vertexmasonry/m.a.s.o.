@@ -18,10 +18,7 @@ def run():
         for cmd_file in settings.CMDS_DIR.glob("*.py"):
             if cmd_file.name != "__init__py":
                 await bot.load_extension(f"cmds.{cmd_file.name[:-3]}")
-
-        bot.tree.copy_global_to(guild=settings.GUILDS_ID)
-        await bot.tree.sync(guild=settings.GUILDS_ID)
-
+                
     bot.run (settings.DISCORD_API_SECRET, root_logger=True)
 
 if __name__ == "__main__":
